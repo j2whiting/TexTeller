@@ -3,13 +3,13 @@ from pathlib import Path
 import cv2 as cv
 import numpy as np
 from onnxruntime import InferenceSession
-from models.third_party.paddleocr.infer import predict_det, predict_rec
-from models.third_party.paddleocr.infer import utility
-from models.utils import mix_inference
-from models.ocr_model.utils.to_katex import to_katex
-from models.ocr_model.utils.inference import inference as latex_inference
-from models.ocr_model.model.TexTeller import TexTeller
-from models.det_model.inference import PredictConfig
+from texteller.models.third_party.paddleocr.infer import predict_det, predict_rec
+from texteller.models.third_party.paddleocr.infer import utility
+from texteller.models.utils import mix_inference
+from texteller.models.ocr_model.utils.to_katex import to_katex
+from texteller.models.ocr_model.utils.inference import inference as latex_inference
+from texteller.models.ocr_model.model.TexTeller import TexTeller
+from texteller.models.det_model.inference import PredictConfig
 
 class MixedInferenceModel:
     def __init__(self, inference_mode='cpu', num_beams=1, mix_mode=False):
@@ -49,6 +49,16 @@ class MixedInferenceModel:
             print('Models and configurations for mixed inference loaded.')
 
     def predict(self, image_bytes):
+        """
+        Call like so:
+        
+        m = MixedInferenceModel()
+        with open ('/Users/jwhiting/Documents/gollm_evaluation_ASKEM_may_2024/equation_from_pdf/formula_28.png', 'rb') as img:
+	    img = img.read()
+    	output = m.predict(img)
+        assert isinstance(output, str)
+        
+        """
         image_nparray = np.frombuffer(image_bytes, np.uint8)
         img = cv.imdecode(image_nparray, cv.IMREAD_COLOR)
 
