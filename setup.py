@@ -12,6 +12,7 @@ install_requires = [
     "shapely",
     "pyclipper",
     "optimum[exporters]",
+    "opencv-python",
 ]
 
 setup(
