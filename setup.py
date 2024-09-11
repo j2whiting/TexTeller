@@ -11,7 +11,6 @@ install_requires = [
     "python-multipart",
     "shapely",
     "pyclipper",
-    "optimum[exporters]",
     "opencv-python-headless==4.9.0.80",
 ]
 
