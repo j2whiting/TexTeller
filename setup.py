@@ -6,20 +6,11 @@ install_requires = [
     "torch",
     "torchvision",
     "transformers",
-    "datasets",
-    "evaluate",
-    "opencv-python",
-    "ray[serve]",
     "accelerate",
-    "tensorboardX",
     "nltk",
     "python-multipart",
-    "augraphy",
-    "streamlit==1.30",
-    "streamlit-paste-button",
     "shapely",
     "pyclipper",
-
     "optimum[exporters]",
 ]
 
@@ -32,7 +23,7 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     url="https://github.com/j2whiting/TexTeller",
-    packages=find_packages(),
+    packages=find_packages(include=["texteller", "texteller.*"]),
     install_requires=install_requires,
     classifiers=[
         "Programming Language :: Python :: 3",
