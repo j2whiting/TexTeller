@@ -31,7 +31,7 @@ setup(
     description="A meta-package for installing dependencies",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/OleehyO/TexTeller",
+    url="https://github.com/j2whiting/TexTeller",
     packages=find_packages(),
     install_requires=install_requires,
     classifiers=[
