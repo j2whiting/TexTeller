@@ -20,8 +20,8 @@ class InferenceModel:
         """
         Call like so:
         
-        m = MixedInferenceModel()
-        with open ('/Users/jwhiting/Documents/gollm_evaluation_ASKEM_may_2024/equation_from_pdf/formula_28.png', 'rb') as img:
+        m = InferenceModel()
+        with open ('~/equation_from_pdf/formula_28.png', 'rb') as img:
 	    img = img.read()
     	output = m.predict(img)
         assert isinstance(output, str)
